@@ -1,0 +1,11 @@
+
+module: mnist
+model: MnistClassifier
+
+train:
+    epochs: 20
+    verbose: 1
+    checkpoint: mnist_best.hdf5
+    
+test:
+    checkpoint: mnist_best.hdf5

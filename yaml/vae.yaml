@@ -1,0 +1,41 @@
+
+module: vae
+model: VAE
+train:
+    epochs: 20
+    verbose: 1
+    checkpoint: celeba_vae.hdf5
+    checkpoint_dir: "checkpoints/vae/"
+    data_folder: "raw/celeba"
+
+    learning_rate: 0.0005
+    r_loss_factor: 10000
+
+    input_dim: [192, 224, 3]
+    batch_size: 32
+
+    z_dim: 200
+    use_batch_norm: true
+    use_dropout: true
+
+    encoder:
+        n_of_layers: 2
+        filters: [32, 64]
+        kernel_sizes: [5, 5]
+        strides: [4,4]
+    decoder:
+        n_of_layers: 2
+        filters: [32, 3]
+        kernel_sizes: [5, 5]
+        strides: [4,4]
+
+    # encoder:
+    #     n_of_layers: 4
+    #     filters: [32, 64, 64, 64]
+    #     kernel_sizes: [3, 3, 3, 3]
+    #     strides: [2,2,2,2]
+    # decoder:
+    #     n_of_layers: 4
+    #     filters: [64, 64, 32, 3]
+    #     kernel_sizes: [3, 3, 3, 3]
+    #     strides: [2,2,2,2]
