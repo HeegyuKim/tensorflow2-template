@@ -2,3 +2,6 @@ raw/
 data/
 checkpoints/
 .vscode/
+__pycache__/
+logs/
+*.pyc

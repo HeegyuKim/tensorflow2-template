@@ -1,13 +1,17 @@
 module: mnist
-model: MnistClassifier
+model: MnistCNNClassifier
 
 
 train:
-    epochs: 20
+    epochs: 50
     verbose: 1
     batch_size: 512
     validation_split: 0.1
     
+    iteration: 3
+    filters: [2, 4, 8]
+    kernels: [3, 3, 3]
+
     compile:
         optimizer: adam
         loss: sparse_categorical_crossentropy
@@ -15,12 +19,12 @@ train:
     
     checkpoint: 
         filepath: mnist_best.hdf5
-        monitor: 
 
     early_stopping:
         monitor: loss
         mode: min
     
+    summary: true # default true
     tensorboard: true   # default false
         
 

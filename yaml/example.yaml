@@ -1,0 +1,17 @@
+
+module: mnist
+model: MnistClassifier
+
+compile:
+    optimizer: adam
+    loss: sparse_categorical_crossentropy
+    metrics: [accuracy]
+train:
+    epochs: 20
+    verbose: 1
+    batch_size: 512
+    validation_split: 0.1
+    checkpoint: mnist_best.hdf5
+    
+test:
+    checkpoint: mnist_best.hdf5
